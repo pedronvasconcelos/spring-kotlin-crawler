@@ -3,6 +3,7 @@ package com.nantes.crawler.application.usecase
 import com.nantes.crawler.domain.interfaces.CrawlRepository
 import com.nantes.crawler.domain.models.Crawl
 import com.nantes.crawler.domain.models.CrawlStatus
+import com.nantes.crawler.domain.shared.ResourceNotFoundException
 import org.springframework.stereotype.Service
 import java.util.UUID
 
@@ -28,8 +29,8 @@ class GetCrawlRequestHandler(
 ) {
     fun handle(request: UUID): GetCrawlResponse {
         val crawl = crawlRepository.findById(request) ?:
-        throw IllegalArgumentException("Crawl not found")
+        throw ResourceNotFoundException("Crawl", request)
 
-        return GetCrawlResponse.fromDomain(crawl);
+        return GetCrawlResponse.fromDomain(crawl)
     }
 }

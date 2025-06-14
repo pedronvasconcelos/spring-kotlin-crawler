@@ -8,6 +8,6 @@ import java.util.*
 @Service
 class CrawlRabbitMQQueueNotification(private val amqpTemplate : AmqpTemplate) : CrawlQueueNotification {
     override fun notify(crawlId: UUID) {
-        amqpTemplate.convertAndSend(RabbitMQConfig.CRAWL_QUEUE_NAME, crawlId.toString());
+        amqpTemplate.convertAndSend(RabbitMQConfig.CRAWL_QUEUE_NAME, crawlId.toString())
     }
 }
