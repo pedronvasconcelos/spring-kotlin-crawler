@@ -1,4 +1,4 @@
-package com.nantes.crawler.domain.interface
+package com.nantes.crawler.domain.interfaces
 
 import com.nantes.crawler.domain.models.Crawl
 import java.util.UUID

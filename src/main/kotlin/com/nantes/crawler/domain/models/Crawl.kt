@@ -3,12 +3,14 @@ package com.nantes.crawler.domain.models
 import java.util.UUID
 import java.time.LocalDateTime
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.Field
 
 
+@Document
 data class Crawl(
     @Id
-    val crawlId: UUID = UUID.randomUUID(),
+    val id: UUID = UUID.randomUUID(),
     @Field("status")
     val status: CrawlStatus,
     @Field("urls")
